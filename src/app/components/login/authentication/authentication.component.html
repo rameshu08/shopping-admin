@@ -1,0 +1,35 @@
+<div class="container">
+  <h1>Login</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-group">
+    <div class="col-xs-12 hgt-75">
+      <label for="email">EMAIL</label>
+      <input id="email" [formControl]="loginForm.controls['email']" type="text" placeholder="Enter email"
+        class="form-control" />
+      <small *ngIf="loginForm.controls['email'].dirty && !loginForm.controls['email'].valid" class="text-danger">
+        E-mail is required.
+      </small>
+    </div>
+    <div class="col-xs-12 top-10 hgt-75">
+      <label for="password">PASSWORD</label>
+      <input id="password" type="password" minlength="6" placeholder="Enter password" class="form-control"
+        [formControl]="loginForm.controls['password']" (keyup.enter)="onSubmit()" />
+
+      <div
+        *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+        <div *ngIf="loginForm.controls['password'].errors.required" class="text-danger">
+          Password is required.
+        </div>
+        <div class="text-danger" *ngIf="loginForm.controls['password'].errors?.minlength">
+          password must be at least 6 characters long.
+        </div>
+      </div>
+
+    </div>
+    <div class="row top-10">
+      <div class="col-sm-6 col-xs-12">
+        <button type="submit" class="btn btn-danger align-right" [disabled]="!loginForm.valid">Login</button>
+      </div>
+    </div>
+    <a [routerLink] = "['register']" >Register</a>
+  </form>
+</div>
