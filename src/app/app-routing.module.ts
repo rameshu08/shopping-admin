@@ -6,14 +6,14 @@ const routes: Routes = [
   {
     path:'', component: AppComponent, children:[
       {
-        path:'', redirectTo:'home', pathMatch:'full'
+        path:'', redirectTo:'login', pathMatch:'full'
       },
       {
-        path:'home', loadChildren: './components/dashboard/dashboard.module#DashboardModule'
+        path:'dashboard', loadChildren: './components/dashboard/dashboard.module#DashboardModule'
       },
-      // {
-      //   path:'login', loadChildren:'./components/login/login.module#LoginModule'
-      // },
+      {
+        path:'login', loadChildren:'./components/login/login.module#LoginModule'
+      },
       {
         path:'**', redirectTo:'', pathMatch:'full'
       }

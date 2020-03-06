@@ -2,7 +2,7 @@
   <h1>Login</h1>
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-group">
     <div class="col-xs-12 hgt-75">
-      <label for="email">EMAIL</label>
+      <label for="email">Email</label>
       <input id="email" [formControl]="loginForm.controls['email']" type="text" placeholder="Enter email"
         class="form-control" />
       <small *ngIf="loginForm.controls['email'].dirty && !loginForm.controls['email'].valid" class="text-danger">
@@ -10,7 +10,7 @@
       </small>
     </div>
     <div class="col-xs-12 top-10 hgt-75">
-      <label for="password">PASSWORD</label>
+      <label for="password">Password</label>
       <input id="password" type="password" minlength="6" placeholder="Enter password" class="form-control"
         [formControl]="loginForm.controls['password']" (keyup.enter)="onSubmit()" />
 
@@ -29,7 +29,9 @@
       <div class="col-sm-6 col-xs-12">
         <button type="submit" class="btn btn-danger align-right" [disabled]="!loginForm.valid">Login</button>
       </div>
+      <div class="col-sm-6 col-xs-6">
+        <button [routerLink] = "['register']" class="btn btn-primary" >Register</button>
+      </div>
     </div>
-    <a [routerLink] = "['register']" >Register</a>
   </form>
 </div>

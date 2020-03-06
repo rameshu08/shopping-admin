@@ -16,9 +16,6 @@ const routes:Routes = [
                 path:'cart', component: CartComponent
             },
             {
-                path:'login', loadChildren: './components/login/login.module#LoginModule'
-            },
-            {
                 path:'**', redirectTo:'', pathMatch:'full'
             }]
     }

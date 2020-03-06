@@ -1,26 +1,26 @@
 <div class="container">
-  <h1>Create an account</h1>
+  <h1>create an account</h1>
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form-group">
     <div class="col-xs-12 hgt-75">
-      <label for="userName">Username</label>
-      <input id="userName" [formControl]="registerForm.controls['userName']" type="text" placeholder="Enter userName"
+      <label for="userName">Name</label>
+      <input id="userName" [formControl]="registerForm.controls['userName']" type="text" placeholder="Enter Name"
         class="form-control" />
       <small *ngIf="registerForm.controls['userName'].dirty && !registerForm.controls['userName'].valid" class="text-danger">
         E-mail is required.
       </small>
     </div>
     <div class="col-xs-12 hgt-75">
-      <label for="email">EMAIL</label>
-      <input id="email" [formControl]="registerForm.controls['email']" type="text" placeholder="Enter email"
+      <label for="email">Email</label>
+      <input id="email" [formControl]="registerForm.controls['email']" type="text" placeholder="Enter Email"
         class="form-control" />
       <small *ngIf="registerForm.controls['email'].dirty && !registerForm.controls['email'].valid" class="text-danger">
         E-mail is required.
       </small>
     </div>
     <div class="col-xs-12 top-10 hgt-75">
-      <label for="password">PASSWORD</label>
+      <label for="password">Password</label>
       <input id="password" type="password" minlength="6" placeholder="Enter password" class="form-control"
-        [formControl]="registerForm.controls['password']" (keyup.enter)="onSubmit()" />
+        [formControl]="registerForm.controls['password']"/>
 
       <div
         *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)">
@@ -43,7 +43,7 @@
     </div>
     <div class="row top-10">
       <div class="col-sm-6 col-xs-12">
-        <button type="submit" class="btn btn-danger align-right" [disabled]="!registerForm.valid">Login</button>
+        <button type="submit" class="btn btn-primary align-right" [disabled]="!registerForm.valid">Register</button>
       </div>
     </div>
   </form>

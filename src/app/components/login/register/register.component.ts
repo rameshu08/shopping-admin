@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
 
@@ -19,17 +19,17 @@ public registerForm: FormGroup;
   ngOnInit() {
 
     this.registerForm = this._fb.group({
-      userName:[''],
-      email:[''],
-      password:[''],
-      mobile:['']
+      userName:['',[Validators.required]],
+      email:['',[Validators.required]],
+      password:['',[Validators.required]],
+      mobile:['',[Validators.required]]
     })
   }
 
   onSubmit(){
     this.loginService.addUser(this.registerForm.value).subscribe((res) => {
       if(res){
-        this.router.navigateByUrl('/dashboard');
+        this.router.navigateByUrl('/login');
       }
     })
   }
